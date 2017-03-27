@@ -312,6 +312,11 @@ zmq::socket_base_t *zmq::session_base_t::get_socket ()
     return socket;
 }
 
+bool zmq::session_base_t::use_bind ()
+{
+    return !active;
+}
+
 void zmq::session_base_t::process_plug ()
 {
     if (active)

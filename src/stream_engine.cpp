@@ -408,6 +408,10 @@ void zmq::stream_engine_t::out_event ()
     //  The engine is not terminated until we detect input error;
     //  this is necessary to prevent losing incoming messages.
     if (nbytes == -1) {
+        if(session->use_bind ()) {
+            error (connection_error);
+            return;
+        }
         reset_pollout (handle);
         return;
     }

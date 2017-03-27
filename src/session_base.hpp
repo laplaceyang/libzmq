@@ -98,6 +98,8 @@ namespace zmq
 
         socket_base_t *get_socket ();
 
+        bool use_bind();
+
     protected:
 
         session_base_t (zmq::io_thread_t *io_thread_, bool active_,
